@@ -10,6 +10,8 @@ import static org.testng.Assert.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class SpartanTestWithPathMethod {
 
     @BeforeClass
@@ -52,4 +54,33 @@ public class SpartanTestWithPathMethod {
        assertEquals(phone, 3312820936l);
 
     }
+
+
+    @Test
+    public void test2() {
+        Response response = get("/api/spartans");
+
+        //extracy first id
+        int firstId = response.path("id[0]");
+        System.out.println("firstId = " + firstId);
+
+        //extract name
+        String first1stName = response.path("name[0]");
+        System.out.println("first1stName = " + first1stName);
+
+        // get the last firstname
+        String last1stName = response.path("name[-1]");
+        System.out.println("last1stName = " + last1stName);
+
+        //extract all firstNames and print them
+        List<String> names = response.path("name");
+        System.out.println(names);
+        System.out.println("names.size() = " + names.size());
+
+        List<Object> phoneNumbers = response.path("phone");
+        System.out.println("phoneNumbers = " + phoneNumbers);
+        System.out.println("phoneNumbers.size() = " + phoneNumbers.size());
+
+    }
 }
+
