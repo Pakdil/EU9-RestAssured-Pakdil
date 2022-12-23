@@ -49,7 +49,7 @@ public class SpartanTestWithPathMethod {
         assertEquals(id, 10);
         assertEquals(name, "Lorenza");
         assertEquals(gender, "Female");
-       // assertEquals(phone, 3312820936);
+       assertEquals(phone, 3312820936l);
 
     }
 }
