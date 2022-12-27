@@ -25,7 +25,7 @@ public class SpartanTestWithJsonPath {
                 .when().get("/api/spartans/{id}");
 
         assertEquals(response.statusCode(), 200);
-// how to read value with path() method
+        // how to read value with path() method
         int id = response.path("id");
         System.out.println("id = " + id);
 
